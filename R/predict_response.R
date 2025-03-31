@@ -645,6 +645,10 @@ predict_response <- function(model,
     )
   )
 
+  #add a message for possible 645 issue
+  if(anyNA(newdata))
+    message("You have NA in your dataset and the result may be incorrect, please check by using dataset directly from your model. See https://github.com/strengejacke/ggeffects/issues/645")
+
   # save name, so it can later be retrieved from environment
   model_name <- insight::safe_deparse(substitute(model))
 
